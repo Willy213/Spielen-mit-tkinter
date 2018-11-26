@@ -1,0 +1,31 @@
+from tkinter import *
+
+class Fenster(Frame):
+    
+    def __init__(self,master=None):
+        Frame.__init__(self, master)
+        self.pack()
+        self.infoFrame=Frame(master)
+        self.infoFrame.pack()
+        self.infoText=Label(self.infoFrame,text="Steuerung des LED Bandes WS2812B mithilfe der Buttons")
+        self.infoText.pack()
+
+        self.anFrame=Frame(master)
+        self.anFrame.pack()
+        self.anButton=Button(self.anFrame,text="Anschalten",width=15)
+        self.anButton['command']=self.action
+        self.anButton.pack(side='left')
+
+        self.ausButton=Button(self.anFrame,text="Ausschalten",width=15)
+        self.ausButton['command']=self.ausaction
+        self.ausButton.pack(side='right')
+    def action(self):
+        print ("Das hier")
+    def ausaction(self):
+        print ('Ja scheiß doch die Wand an!')
+
+
+
+root=Tk()
+app=Fenster(master=root)
+app.mainloop()
